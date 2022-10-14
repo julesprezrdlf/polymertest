@@ -9,8 +9,12 @@
 
     <title>polymertest-app test</title>
 
-    <script src="../../../webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../../../web-component-tester/browser.js"></script>
+
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <script src="../../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+
+
 
     <link rel="import" href="../../src/polymertest-app/polymertest-app.html" />
   </head>
@@ -21,46 +25,25 @@
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
+   <!--<test-fixture id="ChangedPropertyTestFixture">
       <template>
         <polymertest-app prop1="new-prop1"></polymertest-app>
       </template>
-    </test-fixture>
+    </test-fixture> -->
 
-    <!-- <script>
-      suite('polymertest-app', function() {
-
-        test('instantiating the element with default properties works', function() {
-          var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'polymertest-app');
-          var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello polymertest-app!');
-        });
-
-        test('setting a property on the element works', function() {
-          // Create a test fixture
-          var element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
-        });
-
-      });
-    </script> -->
 
     <script>
       suite("polymertest-app", () => {
         let element;
         setup(() => {
-          element = fixture("BasicTestFixtureApp");
+          element = fixture("BasicTestFixture");
         });
 
         test("shows div on click", (done) => {
           let button = element.shadowRoot.querySelector("#button-change");
           button.click();
           assert.equal(element.prop1, "ee");
+          done();
         });
 
         test("shows div on click", (done) => {
@@ -69,7 +52,8 @@
 
           flush(() => {
             let div = element.shadowRoot.querySelector("#show");
-            assert.equal(div.innetHTML, "ee");
+            console.log(div);
+            assert.equal(div.innerHTML, "ee");
             done();
           });
         });
