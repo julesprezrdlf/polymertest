@@ -11,13 +11,11 @@
         display: block;
       }
     </style>
-    <h2>Random text: [[prop1]]!</h2>
+    <h2>[[prop1]]</h2>
     <button id="button-change" on-click="changeProperties">Change properties</button>
     <button id="button-show" on-click="showDiv">show/Hide Div</button>
     <template is="dom-if" if="[[visible]]">
-      <div id="show" class="visible">
-        ee
-      </div>
+      <div id="show" class="visible">ee</div>
     </template>
   </template>
 
@@ -34,7 +32,7 @@
         return {
           prop1: {
             type: String,
-            value: "ee",
+            value: "sin texto",
           },
           visible: {
             type: Boolean,
