@@ -11,12 +11,12 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
-    <button id="button-change" on-click="changeProperties">Click here</button>
-    <button id="button-show" on-click="showDiv">show</button>
+    <h2>Random text: [[prop1]]!</h2>
+    <button id="button-change" on-click="changeProperties">Change properties</button>
+    <button id="button-show" on-click="showDiv">show/Hide Div</button>
     <template is="dom-if" if="[[visible]]">
       <div id="show" class="visible">
-        <p>Uee!</p>
+        Hola Mundo
       </div>
     </template>
   </template>
@@ -34,13 +34,21 @@
         return {
           prop1: {
             type: String,
-            value: "testing polymer ",
+            value: "Prop",
           },
           visible: {
             type: Boolean,
             value: false,
-          }
+          },
         };
+      }
+
+      showDiv(){
+        this.visible=!this.visible;
+      }
+
+      changeProperties(){
+        this.prop1="Hola";
       }
     }
 

@@ -60,13 +60,19 @@
         test("shows div on click", (done) => {
           let button = element.shadowRoot.querySelector("#button-change");
           button.click();
-          assert.equal(element.prop1, "you");
+          assert.equal(element.prop1, "Hola");
         });
 
-        test ('shows div on click', (done) => {
-          let button = element.shadowRoot.querySelector('#button-show');
+        test("shows div on click", (done) => {
+          let button = element.shadowRoot.querySelector("#button-show");
           button.click();
-        })
+
+          flush(() => {
+            let div = element.shadowRoot.querySelector("#show");
+            asser.equal(div.innetHTML, "Hola Mundo");
+            done();
+          });
+        });
       });
     </script>
   </body>
