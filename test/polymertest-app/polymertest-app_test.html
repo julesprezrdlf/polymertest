@@ -1,18 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
+    />
 
     <title>polymertest-app test</title>
 
     <script src="../../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../../src/polymertest-app/polymertest-app.html">
+    <link rel="import" href="../../src/polymertest-app/polymertest-app.html" />
   </head>
   <body>
-
     <test-fixture id="BasicTestFixture">
       <template>
         <polymertest-app></polymertest-app>
@@ -25,7 +27,7 @@
       </template>
     </test-fixture>
 
-    <script>
+    <!-- <script>
       suite('polymertest-app', function() {
 
         test('instantiating the element with default properties works', function() {
@@ -46,8 +48,26 @@
         });
 
       });
+    </script> -->
+
+    <script>
+      suite("polymertest-app", () => {
+        let element;
+        setup(() => {
+          element = fixture("BasicTestFixtureApp");
+        });
+
+        test("shows div on click", (done) => {
+          let button = element.shadowRoot.querySelector("#button-change");
+          button.click();
+          assert.equal(element.prop1, "you");
+        });
+
+        test ('shows div on click', (done) => {
+          let button = element.shadowRoot.querySelector('#button-show');
+          button.click();
+        })
+      });
     </script>
-
-
   </body>
 </html>

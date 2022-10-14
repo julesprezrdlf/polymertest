@@ -1,4 +1,8 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/polymer-element.html" />
+<link
+  rel="import"
+  href="../../bower_components/polymer/lib/elements/dom-if.html"
+/>
 
 <dom-module id="polymertest-app">
   <template>
@@ -8,6 +12,13 @@
       }
     </style>
     <h2>Hello [[prop1]]!</h2>
+    <button id="button-change" on-click="changeProperties">Click here</button>
+    <button id="button-show" on-click="showDiv">show</button>
+    <template is="dom-if" if="[[visible]]">
+      <div id="show" class="visible">
+        <p>Uee!</p>
+      </div>
+    </template>
   </template>
 
   <script>
@@ -16,12 +27,18 @@
      * @polymer
      */
     class PolymertestApp extends Polymer.Element {
-      static get is() { return 'polymertest-app'; }
+      static get is() {
+        return "polymertest-app";
+      }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'polymertest-app'
+            value: "testing polymer ",
+          },
+          visible: {
+            type: Boolean,
+            value: false,
           }
         };
       }
