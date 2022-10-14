@@ -16,7 +16,7 @@
     <button id="button-show" on-click="showDiv">show/Hide Div</button>
     <template is="dom-if" if="[[visible]]">
       <div id="show" class="visible">
-        Hola Mundo
+        ee
       </div>
     </template>
   </template>
@@ -34,7 +34,7 @@
         return {
           prop1: {
             type: String,
-            value: "Prop",
+            value: "ee",
           },
           visible: {
             type: Boolean,
@@ -48,7 +48,7 @@
       }
 
       changeProperties(){
-        this.prop1="Hola";
+        this.prop1="ee";
       }
     }
 
